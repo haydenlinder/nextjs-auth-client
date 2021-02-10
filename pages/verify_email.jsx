@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import { useMutation } from 'react-query'
 import { verifyUser } from '../utils/user_auth'
+import { useEffect } from 'react'
 
 const VerifyEmail = ({  }) => {
 
@@ -9,17 +10,19 @@ const VerifyEmail = ({  }) => {
 
     const verifyUserMutation = useMutation(verifyUser, {
         onSuccess: res => {
-            console.log(res)
+            router.push('/login')
         }
     })
 
+    const { error, data, isLoading, isError, isSuccess } = verifyUserMutation
+
     useEffect(() => {
-        verifyUserMutation.mutate(token)
+        verifyUserMutation.mutate({ token })
     },[])
 
-    return (
-        <div>Verifying token: {token}...</div>
-    )
+    const message = error?.message || data?.message || 'Verifying...'
+
+    return <div>{message}</div>
 
 }
 
