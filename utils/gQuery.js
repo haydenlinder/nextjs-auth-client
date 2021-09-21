@@ -1,4 +1,7 @@
-const ENDPOINT = process.env.NEXT_PUBLIC_CLIENT_SERVICE_URL
+// TODO: break out services?
+const ENDPOINT = process.env.NEXT_PUBLIC_AUTH_URL
+
+console.log(ENDPOINT)
 
 const gQuery = async (query, variables) => {
     const res = await fetch(

@@ -4,8 +4,7 @@ import { useMutation, useQuery } from "react-query"
 import queryClient from "./queryClient"
 
 // auth service
-const NEXT_PUBLIC_CLIENT_SERVICE_URL = process.env.NEXT_PUBLIC_CLIENT_SERVICE_URL
-const NEXT_PUBLIC_SERVER_SERVICE_URL = process.env.NEXT_PUBLIC_SERVER_SERVICE_URL
+const SERVICE = process.env.NEXT_PUBLIC_AUTH_URL
 // endpoints
 const SIGNUP = '/signup'
 const LOGIN = '/login'
@@ -15,13 +14,8 @@ const VERIFY = '/verify_email'
 
 const userAction = async (user, endpoint, opts = {headers: {}}) => {
 
-    const resource = 
-    typeof window !== 'undefined' ? 
-        NEXT_PUBLIC_CLIENT_SERVICE_URL :
-        NEXT_PUBLIC_SERVER_SERVICE_URL 
-
     const res = await fetch( 
-        resource + endpoint,
+        SERVICE + endpoint,
         {
             headers: {
                 'Content-type': 'application/json',

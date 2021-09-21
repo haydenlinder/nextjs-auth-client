@@ -30,7 +30,7 @@ const SessionForm = ({ isLogin = true, callback = () => null }) => {
 
     const handleDemo = e => {
         e.preventDefault()
-        const user = { email: 'email@email.com', password: '1234' }
+        const user = { email: 'test@test.com', password: 'test123' }
         loginMutation.mutate(user)
     }
 

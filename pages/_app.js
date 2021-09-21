@@ -20,7 +20,7 @@ const Content = ({ Component, pageProps }) => {
   return ( 
     <>
       <Header />
-      <Container>
+      <Container maxWidth='md'>
         <Box pt={15} pb={12} height='100vh' display='flex' flexDirection='column' alignItems='center'>
           {isFetching?<CircularProgress />:null}
           <br/>
