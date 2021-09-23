@@ -38,4 +38,5 @@ EXPOSE 3000
 # Uncomment the following line in case you want to disable telemetry.
 # ENV NEXT_TELEMETRY_DISABLED 1
 
-CMD ["npm", "start"]
+# NEXT_PUBLIC_AUTH_URL should be set in heroku
+CMD NEXT_PUBLIC_AUTH_URL=$NEXT_PUBLIC_AUTH_URL npm start

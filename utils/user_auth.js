@@ -12,7 +12,7 @@ const LOGOUT = '/logout'
 const REFRESH = '/refresh_token'
 const VERIFY = '/verify_email'
 
-const userAction = async (user, endpoint, opts = {headers: {}}) => {
+const userAction = async (user, endpoint, opts = { headers: {} }) => {
 
     const res = await fetch( 
         SERVICE + endpoint,
@@ -21,6 +21,7 @@ const userAction = async (user, endpoint, opts = {headers: {}}) => {
                 'Content-type': 'application/json',
                 ...opts.headers
             },
+            mode: 'cors',
             method: `POST`,
             body: JSON.stringify(user),
             credentials: 'include'
