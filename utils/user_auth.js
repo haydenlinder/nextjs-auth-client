@@ -5,7 +5,7 @@ import queryClient from "./queryClient"
 
 // auth service
 const SERVICE = process.env.NEXT_PUBLIC_AUTH_URL
-console.log({SERVICE})
+console.log('env', process.env)
 // endpoints
 const SIGNUP = '/signup'
 const LOGIN = '/login'
