@@ -11,7 +11,7 @@ FROM node:alpine AS builder
 WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
-RUN touch /.env && echo NEXT_PUBLIC_AUTH_URL="$NEXT_PUBLIC_AUTH_URL" > /.env
+RUN touch /.env && echo NEXT_PUBLIC_AUTH_URL=$NEXT_PUBLIC_AUTH_URL > /.env
 RUN NEXT_PUBLIC_AUTH_URL=$NEXT_PUBLIC_AUTH_URL npm run build && npm install --production --ignore-scripts --prefer-offline
 
 # Production image, copy all the files and run next
